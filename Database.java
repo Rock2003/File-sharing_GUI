@@ -4,47 +4,38 @@ import java.nio.file.Files;
 
 public class Database {
 
-   final static String PASSWORD = "password";
    final static String DATABASE = "\\\\YOUSSEF\\Server";
    
    
    public static void main(String[] args){
-   
-      Scanner scan = new Scanner(System.in);
-      System.out.println("This is your database.\n");
-
-      checkPassword(scan);
-      
-      while(true) {
-         wish();
-         String s = scan.next();
-         System.out.println();
-         if(s.equals("1")) {
-            open(scan);
-         } else if(s.equals("2")) {
-            store(scan);
-         } else if(s.equals("0")) {
-            System.out.println();
-            break;
-         } else {
-            System.out.println("Wrong input. Repeat:");
-         }
-      }
-      
-      System.out.println("Thank you for using this database!");
+	  Scanner scan = new Scanner(System.in); 
+	  SecurityGUI g = new SecurityGUI();
+	  while(!g.isSecure()) {
+		  try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {}
+	  }
+	  work(scan);
    }
    
-   public static void checkPassword(Scanner scan) {
-      while(true) {
-         System.out.print("What is your password? ");
-         String s = scan.nextLine();
-         if(s.equals(PASSWORD)) {
-            break;
-         } else {
-            System.out.println("Wrong password. Repeat:");
-         }
-      }
-      System.out.println();
+   public static void work(Scanner scan) {
+	   while(true) {
+	         wish();
+	         String s = scan.next();
+	         System.out.println();
+	         if(s.equals("1")) {
+	            open(scan);
+	         } else if(s.equals("2")) {
+	            store(scan);
+	         } else if(s.equals("0")) {
+	            System.out.println();
+	            break;
+	         } else {
+	            System.out.println("Wrong input. Repeat:");
+	         }
+	      }
+	      
+	      System.out.println("Thank you for using this database!");
    }
    
    public static void wish() {
