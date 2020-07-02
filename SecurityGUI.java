@@ -36,7 +36,7 @@ public class SecurityGUI implements ActionListener {
 			checker = new CheckID();
 		} catch (FileNotFoundException e) {}
 		
-		frame.setSize(300, 300);
+		frame.setSize(350, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		
@@ -64,7 +64,7 @@ public class SecurityGUI implements ActionListener {
 		panel.add(success);
 		
 		frame.setTitle("login");
-		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 
